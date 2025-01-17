@@ -5,7 +5,7 @@ Timezone data is from https://github.com/evansiroky/timezone-boundary-builder/.
 
 ## Install
 ```
-npm install @mapbox/timespace
+npm install https://github.com/GilTeixeiraPT/timespace-without-momentjs
 ```
 
 ## Test
