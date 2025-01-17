@@ -22,29 +22,14 @@ var ts = require('@mapbox/timespace');
 
 var timestamp = Date.now();
 var point = [-122.27783203125, 37.84015683604136];
-var time = ts.getFuzzyLocalTimeFromPoint(timestamp, point);
-//=> (a `moment-timezone` object – see https://momentjs.com/timezone/)
-
-
-var tile = [41, 98, 8];     // the tile [x, y, z] whose timezone we want to know
-var timezone1 = ts.getFuzzyTimezoneFromTile(tile);
-//=> 'America/Los_Angeles'
-
-
-var quadkey = '02301021';   // the quadkey whose timezone we want to know
-var timezone2 = ts.getFuzzyTimezoneFromQuadkey(quadkey);
-//=> 'America/Los_Angeles'
+var timezone = ts.getFuzzyLocalTimeFromPoint(timestamp, point);
+//=> a IANA timezone string (e.g. 'America/Los_Angeles')
 ```
 
 `./lib/timezones.json` file contains the timezone name of every z8 tile that contains land.
 
-
-If a tile/quadkey with zoom levels > 8 is passed into timespace functions, the timezone of its z8 parent is returned.
-
-If a tile/quadkey with zoom levels < 8 is passed into timespace functions, the most popular timezone amongst its z8 children is returned.
-
-
 ## Regenerate timezones.json
+**You need to add moment and moment-timezone to run these scripts. They were removed on this fork.**
 
 To update timezone.json,
 1. find the link address of the latest timezones.shapefile.zip release from https://github.com/evansiroky/timezone-boundary-builder/releases,
